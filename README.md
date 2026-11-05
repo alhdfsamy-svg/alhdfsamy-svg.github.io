@@ -1,1 +1,241 @@
 index.html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>صالون أحمد طبانة للحلاقة</title>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{kufi:['"Reem Kufi"','serif']}}}}</script>
+<style>
+:root{--bg:#0a1220;--panel:rgba(18,28,52,.72);--line:rgba(34,228,255,.28);--tx:#e8f1ff;--mut:#9aaccc;--cy:#22e4ff;--gd:#f5c451;--gr:#39ff88;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1220}}
+:root[data-theme="dark"]{--bg:#0a1220}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--tx);font-family:Tajawal,Tahoma,sans-serif;overflow-x:hidden}
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;animation:hue 10s ease-in-out infinite alternate;background:radial-gradient(600px 400px at 85% 8%,rgba(34,228,255,.17),transparent 70%),radial-gradient(500px 420px at 8% 45%,rgba(245,196,81,.12),transparent 70%),radial-gradient(600px 500px at 80% 95%,rgba(34,228,255,.1),transparent 70%)}
+@keyframes hue{to{filter:hue-rotate(35deg) brightness(1.25)}}
+.mirror{position:fixed;top:14vh;width:70px;height:62vh;z-index:0;pointer-events:none;border:1px solid var(--line);border-radius:40px;background:linear-gradient(115deg,rgba(255,255,255,.07),transparent 40%,rgba(34,228,255,.08) 60%,transparent)}
+.mirror.l{left:-26px}.mirror.r{right:-26px}
+.fl{position:fixed;z-index:0;pointer-events:none;color:var(--cy);opacity:.1;animation:drift 14s ease-in-out infinite}
+@keyframes drift{50%{transform:translateY(-26px) rotate(14deg)}}
+header,section,footer{position:relative;z-index:1}
+.glass{background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.neon{text-shadow:0 0 18px rgba(34,228,255,.55)}.gold{color:var(--gd);text-shadow:0 0 16px rgba(245,196,81,.4)}
+/* ===== Hero ===== */
+.hero{min-height:94vh;display:grid;place-items:center;overflow:hidden;padding:90px 20px 50px}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(10,18,32,.55),transparent 35%,var(--bg))}
+.shape{position:absolute;z-index:1;pointer-events:none;animation:fa var(--d) ease-in-out infinite alternate;filter:drop-shadow(0 0 8px currentColor)}
+@keyframes fa{to{transform:translate(34px,-56px) rotate(70deg)}}
+.hp{position:relative;z-index:3;max-width:760px;width:100%;text-align:center;padding:34px 22px;background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);clip-path:polygon(0 0,94% 0,100% 8%,100% 100%,6% 100%,0 92%);box-shadow:0 0 60px rgba(34,228,255,.12)}
+.w{display:inline-block;opacity:0;transform:translateY(30px);animation:wi .9s cubic-bezier(.2,.9,.3,1) forwards}
+@keyframes wi{to{opacity:1;transform:none}}
+.big{font-size:clamp(2.6rem,10vw,5.6rem);line-height:1.15;animation:wi .9s .4s forwards,fl2 5s 1.5s ease-in-out infinite;opacity:0}
+@keyframes fl2{50%{transform:translateY(-8px)}}
+.shine{background:linear-gradient(90deg,var(--gd),#fff,var(--cy),var(--gd));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:300% 0}}
+.open{color:var(--gr);text-shadow:0 0 12px var(--gr),0 0 28px var(--gr);border:1px solid var(--gr);box-shadow:0 0 22px rgba(57,255,136,.5),inset 0 0 14px rgba(57,255,136,.2);animation:op 2s ease-in-out infinite}
+@keyframes op{50%{box-shadow:0 0 40px rgba(57,255,136,.85),inset 0 0 20px rgba(57,255,136,.3)}}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--gr);box-shadow:0 0 12px var(--gr);margin-left:8px}
+/* ===== Glass geometric photo frames =====
+   غيّر الشكل بإضافة p1 أو p2 أو p3 */
+.gf{position:relative;clip-path:var(--p);padding:5px;width:100%;height:100%;background:linear-gradient(135deg,rgba(255,255,255,.4),rgba(34,228,255,.18) 40%,rgba(245,196,81,.3),rgba(255,255,255,.12)) 0 0/220% 220%;animation:sh2 7s linear infinite;--p:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+@keyframes sh2{to{background-position:220% 220%}}
+.gf.p2{--p:polygon(14% 0,100% 0,86% 100%,0 100%)}
+.gf.p3{--p:polygon(0 0,86% 0,100% 14%,100% 100%,14% 100%,0 86%)}
+.in{position:relative;width:100%;height:100%;clip-path:var(--p);overflow:hidden;background:#0b162c}
+.in img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.phd{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:4px;text-align:center;font-size:11px;color:var(--mut);background:linear-gradient(145deg,#0f2447,#111a30 55%,#2a2410)}
+.cam{position:absolute;bottom:8px;left:50%;translate:-50% 0;z-index:3;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(7,13,28,.6);border:1px solid var(--line);cursor:pointer;font-size:13px}.cam input{display:none}
+.btn{background:linear-gradient(90deg,var(--cy),#7df3ff);color:#041018;font-weight:700;border-radius:14px;transition:.25s;box-shadow:0 0 22px rgba(34,228,255,.4);display:inline-block;text-align:center}
+.btn:hover{transform:translateY(-2px) scale(1.02)}.btn:active{transform:scale(.97)}
+.pulse{animation:pls 2.2s ease-in-out infinite}@keyframes pls{50%{box-shadow:0 0 42px rgba(34,228,255,.9)}}
+.chip{border:1px solid var(--line);border-radius:12px;padding:.6rem .4rem;background:rgba(34,228,255,.04);transition:.2s;cursor:pointer;color:var(--tx)}
+.chip:hover:not(:disabled){border-color:var(--cy);box-shadow:0 0 14px rgba(34,228,255,.45);transform:translateY(-2px)}.chip:active:not(:disabled){transform:scale(.94)}
+.chip.on{background:var(--cy);color:#041018;font-weight:700;box-shadow:0 0 22px rgba(34,228,255,.7)}
+.chip:disabled{opacity:.28;cursor:not-allowed;text-decoration:line-through}
+.svc{transition:.3s;cursor:pointer;color:var(--tx)}.svc:hover{box-shadow:0 0 26px rgba(34,228,255,.4);transform:translateY(-4px)}.svc.on{outline:2px solid var(--gd);box-shadow:0 0 30px rgba(245,196,81,.45)}
+.card{transition:.3s;cursor:pointer;animation:bob 6s ease-in-out infinite;-webkit-tap-highlight-color:transparent}.card:nth-child(2){animation-delay:-2s}.card:nth-child(3){animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.card.on{outline:1px solid var(--gd);box-shadow:0 0 30px rgba(245,196,81,.4)}
+.days{display:flex;gap:.6rem;overflow-x:auto;padding:.4rem .2rem 1rem}.day{flex:0 0 66px}
+.fx{position:fixed;z-index:95;pointer-events:none;will-change:transform,opacity;line-height:1}
+.pop{position:fixed;z-index:80;pointer-events:none;animation:rise var(--d) ease-out forwards}
+@keyframes rise{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--x),-100vh) scale(1.3) rotate(var(--r));opacity:0}}
+.bub{border-radius:50%;border:1px solid rgba(255,255,255,.5);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.5),rgba(34,228,255,.12))}
+.modal{position:fixed;inset:0;z-index:90;display:none;place-items:center;background:rgba(3,7,16,.78);padding:1rem}.modal.show{display:grid}
+.modal>div{animation:in .5s cubic-bezier(.2,1.4,.4,1)}@keyframes in{from{transform:scale(.6) rotate(-4deg);opacity:0}}
+.ring{animation:ring 1.6s ease-out infinite}@keyframes ring{from{box-shadow:0 0 0 0 rgba(245,196,81,.7)}to{box-shadow:0 0 0 34px transparent}}
+#menu{position:fixed;top:0;bottom:0;right:0;width:92%;max-width:420px;z-index:85;transform:translateX(105%);transition:transform .4s;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 18px) 16px 40px;background:rgba(9,16,30,.97);border-left:1px solid var(--line)}
+#menu.open{transform:none}#veil{position:fixed;inset:0;z-index:84;background:rgba(3,7,16,.6);display:none}#veil.open{display:block}
+details{border-top:1px solid transparent;border-image:linear-gradient(90deg,transparent,var(--cy),var(--gd),transparent) 1;padding:14px 0}
+summary{cursor:pointer;font-weight:800;font-size:1.05rem;list-style:none;display:flex;align-items:center;gap:10px}summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";margin-right:auto;color:var(--cy)}details[open] summary::after{content:"－"}
+.bar{height:8px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--cy),var(--gd));transition:width .8s}
+select{background:#0f1a30;color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:.5rem;width:100%}
+@media (max-width:640px){.mirror{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.w,.big{opacity:1!important}}
+:focus-visible{outline:2px solid var(--gd);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="aurora"></div><div class="mirror l"></div><div class="mirror r"></div>
+<svg class="fl" style="top:18%;right:6%" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
+<svg class="fl" style="top:58%;left:5%;animation-delay:-5s" width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h18v4H3zM5 12v6M8 12v6M11 12v6M14 12v6M17 12v6M19 12v6"/></svg>
+<svg class="fl" style="top:80%;right:12%;animation-delay:-9s;color:var(--gd)" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 17 17 4l3 3L7 20H4z"/><path d="M14 7l3 3"/></svg>
+
+<button id="mb" aria-label="القائمة" class="fixed z-50 glass rounded-xl w-12 h-12 text-2xl" style="top:calc(env(safe-area-inset-top,0px) + 12px);right:12px">☰</button>
+<aside id="menu" aria-label="القائمة الجانبية"><div class="flex justify-between items-center mb-2"><h3 class="font-kufi text-2xl gold">القائمة</h3><button id="mx" class="text-2xl" aria-label="إغلاق">✕</button></div><div id="menuBody"></div></aside><div id="veil"></div>
+
+<header class="hero relative" id="top">
+  <!-- ▼ صورة الخلفية: غيّر IMG.hero في أول السكربت (ضعها فارغة '' لإلغائها) -->
+  <div id="heroShapes"></div>
+  <div class="hp">
+    <div id="logoSlot" class="mx-auto mb-5" style="width:104px;height:116px"></div>
+    <p class="w text-lg sm:text-2xl font-bold" style="animation-delay:.1s;color:var(--mut)">أهلاً بك في صالون</p>
+    <h1 class="big font-kufi font-bold shine">أحمد طبانة</h1>
+    <p class="w mt-3 text-lg sm:text-xl font-bold" style="animation-delay:.8s">حيث تبدأ الأناقة من كرسيّنا</p>
+    <div id="openNow" class="w mt-6 inline-block rounded-full py-2 px-5 font-bold" style="animation-delay:1.1s"></div>
+    <div class="w mt-6 flex gap-3 justify-center flex-wrap" style="animation-delay:1.3s"><a href="#book" class="btn pulse px-7 py-3">احجز الآن</a><a href="#team" class="chip px-7 py-3 font-bold">تعرّف على فريقنا</a></div>
+  </div>
+</header>
+
+<section class="max-w-5xl mx-auto px-5 py-10 grid lg:grid-cols-3 gap-5">
+  <div class="lg:col-span-2"><h2 class="font-kufi text-2xl sm:text-3xl mb-5 neon">خدماتنا الفاخرة</h2><div class="grid grid-cols-2 gap-4" id="services"></div></div>
+  <div class="glass rounded-3xl p-6 text-center flex flex-col justify-center" style="box-shadow:0 0 36px rgba(245,196,81,.18)">
+    <div class="text-5xl mb-2">🕙</div><h3 class="font-kufi text-2xl gold mb-3">أوقات العمل</h3>
+    <p class="text-lg leading-9 font-bold">نستقبلكم يومياً من الساعة <span class="gold">10:00 صباحاً</span> حتى الساعة <span class="gold">1:00 بعد منتصف الليل</span></p></div>
+</section>
+
+<section id="team" class="max-w-4xl mx-auto px-5 py-10">
+  <h2 class="font-kufi text-2xl sm:text-3xl text-center mb-8 neon">فريق الحلاقين</h2>
+  <div class="grid sm:grid-cols-3 gap-5" id="barbers"></div>
+</section>
+
+<section id="book" class="max-w-3xl mx-auto px-5 py-10">
+  <div class="glass rounded-3xl p-5 sm:p-8">
+    <h2 class="font-kufi text-2xl sm:text-3xl text-center gold mb-6">احجز موعدك</h2>
+    <label class="block mb-2 font-bold">١. الحلّاق</label><div class="grid grid-cols-3 gap-2 mb-6" id="bChips"></div>
+    <label class="block mb-2 font-bold">٢. نوع الخدمة</label><div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6" id="sChips"></div>
+    <label class="block mb-2 font-bold" for="nm">٣. اسمك الكريم</label>
+    <input id="nm" class="w-full rounded-xl px-4 py-3 mb-6 bg-transparent border outline-none" style="border-color:var(--line);color:var(--tx)" placeholder="اكتب اسمك هنا" autocomplete="name">
+    <label class="block mb-1 font-bold">٤. اليوم <span id="monthLbl" class="text-sm font-normal" style="color:var(--mut)"></span></label><div class="days" id="days"></div>
+    <label class="block mb-2 font-bold">٥. الساعة</label><div class="grid grid-cols-3 sm:grid-cols-4 gap-2 mb-6" id="slots"></div>
+    <div id="sum" class="rounded-xl p-4 mb-5 text-sm leading-7" style="background:rgba(34,228,255,.06);border:1px dashed var(--line)"></div>
+    <button id="go" class="btn pulse w-full py-4 text-lg">تأكيد الحجز</button><p id="err" class="text-center mt-3 text-sm hidden" style="color:#ff8a8a"></p>
+  </div>
+</section>
+
+<!-- ▼ صورة الستوري 9:16: غيّر IMG.story (فارغة = رسمة صالون جاهزة بكراسٍ سوداء ومرايا ذهبية) -->
+<section class="px-5 py-10 flex justify-center"><div id="storySlot" class="w-full max-w-[300px]" style="aspect-ratio:9/16"></div></section>
+
+<footer class="max-w-5xl mx-auto px-5 pb-12 pt-6 text-center" style="color:var(--mut)">
+  <div class="glass rounded-3xl p-7 mb-6" style="box-shadow:0 0 40px rgba(245,196,81,.15)"><p class="font-kufi text-2xl sm:text-4xl leading-loose shine">دع شعرك يتنفس، لأن تسريحتك لغة أناقتك</p></div>
+  <div class="glass rounded-2xl p-5 mb-5 grid gap-4 place-items-center"><div class="font-bold text-lg" style="color:var(--tx)">📍 بغداد _ الحرية الأولى _ قرب مرطبات الجندول</div>
+  <a href="tel:07777007940" class="btn pulse px-8 py-4 text-lg">📞 اتصل بنا فوراً: <span dir="ltr">07777007940</span></a></div>
+  <p class="font-kufi">© ٢٠٢٦ صالون أحمد طبانة</p>
+</footer>
+
+<div class="modal" id="done"><div class="glass rounded-3xl p-7 max-w-sm text-center" style="box-shadow:0 0 60px rgba(245,196,81,.35)">
+  <div class="mx-auto w-24 h-24 rounded-full grid place-items-center text-5xl ring mb-3" style="background:linear-gradient(135deg,var(--gd),#ffe9a8)">🏆</div>
+  <h3 class="font-kufi text-3xl gold mb-1">مبروك! 🎁</h3><p class="font-bold text-lg mb-1">حجزك مؤكد 😊</p>
+  <p class="mb-5 text-sm" style="color:var(--mut)">أهلاً بك في عائلة طبانة. إن لم يُفتح الواتساب تلقائياً اضغط الزر.</p>
+  <a id="waLink" target="_blank" rel="noopener" class="btn px-8 py-3">إرسال عبر واتساب</a>
+  <button class="block mx-auto mt-4 text-sm underline" style="color:var(--mut)" onclick="document.getElementById('done').classList.remove('show')">إغلاق</button></div></div>
+
+<script>
+/* ═════════ أين أضع صوري؟ (الأسهل: غيّر الروابط هنا فقط) ═════════
+   1) ارفع صورتك على أي موقع صور (Unsplash أو imgbb أو Cloudinary) وانسخ رابطها المباشر.
+   2) الصقه بين علامتي الاقتباس مكان الرابط القديم. اترك '' لإظهار مكان بديل جاهز.
+   3) أي رابط لا يعمل يُستبدل تلقائياً بالمكان البديل. وزر 📷 على الإطار للمعاينة فقط من جهازك.
+   ملاحظة: بيئة المعاينة المستضافة تحجب الصور الخارجية، فتظهر في موقعك بعد النسخ.
+   الروابط الافتراضية أمثلة من Unsplash وغير مُتحقَّق منها، فاستبدلها بصورك. */
+const U=id=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=900&q=80`;
+const IMG={
+ hero:U('1503951914875-452162b0f3f1'),   // صورة الخلفية الكبيرة للواجهة الترحيبية
+ logo:'',                                 // أيقونة/لوغو المحل
+ barbers:[U('1585747860715-2ba37e788b70'),U('1599351431202-1e0f0137899a'),U('1621605815971-fbc98d665033')], // صور: أحمد، علي، محمد
+ album:[U('1605497788044-5a32c7078486'),U('1622286342621-4bd786c2447c'),U('1580618672591-eb180b1a973f'),U('1503951914875-452162b0f3f1')], // ألبوم القصّات
+ story:''                                 // إعلان الستوري العمودي 9:16
+};
+const WA='9647777007940'; // 009647777007940
+const barbers=[{n:'أحمد طبانة',r:'المعلّم المؤسس'},{n:'علي التميمي',r:'خبير التدرّج'},{n:'محمد السعدي',r:'نحّات اللحى'}];
+const services=[['✂️','حلاقة كاملة','15,000 د.ع'],['🪒','تحديد','10,000 د.ع'],['👑','باقة العريس الملكية','45,000 د.ع'],['💈','تسريحة شعر','10,000 د.ع']];
+const cuts=['Textured Crop','Low Taper Fade','Modern Mullet','Sculpted Beard'];
+const $=id=>document.getElementById(id);
+const CAM='<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#22e4ff" stroke-width="1.4"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>';
+function slot(src,label,poly,ph){return `<div class="gf ${poly||''}"><div class="in"><div class="phd">${ph||CAM+'<span>'+label+'</span>'}</div>${src?`<img src="${src}" alt="${label}" loading="lazy" onerror="this.remove()">`:''}<label class="cam" title="معاينة من جهازك">📷<input type="file" accept="image/*"></label></div></div>`}
+document.addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f||!e.target.closest('.cam'))return;const b=e.target.closest('.in'),r=new FileReader();r.onload=()=>{let im=b.querySelector('img');if(!im){im=new Image();b.insertBefore(im,b.querySelector('.cam'))}im.src=r.result};r.readAsDataURL(f)});
+/* Hero */
+if(IMG.hero){const im=new Image();im.className='bg';im.alt='';im.onerror=()=>im.remove();im.src=IMG.hero;$('top').prepend(im)}
+const P={hex:'50,3 93,27 93,73 50,97 7,73 7,27',tri:'50,6 94,90 6,90',dia:'50,4 96,50 50,96 4,50'};
+$('heroShapes').innerHTML=[['hex',8,12,90,'c',18],['tri',84,16,70,'g',22],['ring',72,62,110,'c',26],['dia',12,68,60,'g',20],['hex',48,6,46,'g',16],['ring',28,34,40,'c',14],['tri',88,76,50,'c',19],['hex',60,84,64,'c',24]].map(s=>{const c=s[4]=='c'?'#22e4ff':'#f5c451',g=s[0]=='ring'?`<circle cx="50" cy="50" r="44" fill="none" stroke="${c}" stroke-width="2"/>`:`<polygon points="${P[s[0]]}" fill="${c}" fill-opacity=".07" stroke="${c}" stroke-width="2"/>`;return `<svg class="shape" style="left:${s[1]}%;top:${s[2]}%;width:${s[3]}px;color:${c};--d:${s[5]}s" viewBox="0 0 100 100">${g}</svg>`}).join('');
+$('logoSlot').innerHTML=slot(IMG.logo,'اللوغو','');
+function chk(){const h=new Date().getHours();$('openNow').className='w mt-6 inline-block rounded-full py-2 px-5 font-bold '+(h>=10||h<1?'open':'');$('openNow').style.cssText='opacity:1;transform:none;animation-delay:1.1s';$('openNow').innerHTML=(h>=10||h<1)?'<span class="dot"></span>الصالون مفتوح الآن':'مغلق حالياً، نفتح 10:00 صباحاً';}
+chk();setInterval(chk,60000);
+/* Float explosion: يصعد حتى أعلى الشاشة ثم يتلاشى */
+function boom(el){const r=el.getBoundingClientRect(),L=['❤️','😊','👑','✂️','😄','💈','✨','😍','🤴'];
+for(let i=0;i<44;i++){const e=document.createElement('span');e.className='fx';e.textContent=L[i%L.length];const s=20+Math.random()*22;
+e.style.cssText=`left:${r.left+Math.random()*r.width}px;top:${r.top+r.height*.5}px;font-size:${s}px;opacity:0`;document.body.appendChild(e);
+const dy=r.top+r.height*.5+40,dx=(Math.random()-.5)*Math.min(innerWidth*.9,520),d=1500+Math.random()*1300;
+e.animate([{transform:'translate(0,0) scale(.3) rotate(0)',opacity:0},{opacity:1,offset:.1},{opacity:1,offset:.7},{transform:`translate(${dx}px,${-dy}px) scale(${1.1+Math.random()*.9}) rotate(${(Math.random()-.5)*80}deg)`,opacity:0}],{duration:d,delay:Math.random()*220,easing:'cubic-bezier(.12,.75,.3,1)',fill:'both'}).onfinish=()=>e.remove()}}
+let sel={b:null,s:null,d:null,t:null};
+$('barbers').innerHTML=barbers.map((b,i)=>`<article class="card glass p-5 rounded-3xl text-center" data-i="${i}" tabindex="0"><div class="mx-auto mb-4" style="width:132px;height:150px">${slot(IMG.barbers[i],'صورة '+b.n,['','p2','p3'][i])}</div><h3 class="font-kufi text-xl">${b.n}</h3><div class="gold text-sm">${b.r}</div></article>`).join('');
+$('bChips').innerHTML=barbers.map((b,i)=>`<button class="chip" data-i="${i}">${b.n}</button>`).join('');
+function pickB(i){sel.b=i;document.querySelectorAll('.card').forEach((c,k)=>c.classList.toggle('on',k==i));document.querySelectorAll('#bChips .chip').forEach((c,k)=>c.classList.toggle('on',k==i));sum()}
+document.querySelectorAll('.card').forEach(c=>{const go=()=>{pickB(+c.dataset.i);boom(c)};c.onclick=e=>{if(e.target.closest('.cam'))return;go()};c.onkeydown=e=>{if(e.key==='Enter')go()}});
+document.querySelectorAll('#bChips .chip').forEach(c=>c.onclick=()=>pickB(+c.dataset.i));
+$('services').innerHTML=services.map((s,i)=>`<button class="svc glass rounded-2xl p-5 text-center" data-i="${i}"><div class="text-4xl mb-2">${s[0]}</div><div class="font-bold">${s[1]}</div><div class="gold font-bold mt-1">${s[2]}</div></button>`).join('');
+$('sChips').innerHTML=services.map((s,i)=>`<button class="chip" data-i="${i}">${s[1]}<div class="text-xs" style="opacity:.8">${s[2]}</div></button>`).join('');
+function pickS(i){sel.s=i;document.querySelectorAll('.svc').forEach((c,k)=>c.classList.toggle('on',k==i));document.querySelectorAll('#sChips .chip').forEach((c,k)=>c.classList.toggle('on',k==i));sum()}
+document.querySelectorAll('.svc').forEach(c=>c.onclick=()=>{pickS(+c.dataset.i);$('book').scrollIntoView()});
+document.querySelectorAll('#sChips .chip').forEach(c=>c.onclick=()=>pickS(+c.dataset.i));
+const DN=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],MN=['كانون الثاني','شباط','آذار','نيسان','أيار','حزيران','تموز','آب','أيلول','تشرين الأول','تشرين الثاني','كانون الأول'];
+const now=new Date(),dates=[...Array(14)].map((_,i)=>{const d=new Date(now);d.setDate(now.getDate()+i);return d});
+$('monthLbl').textContent='— '+MN[now.getMonth()]+' '+now.getFullYear();
+$('days').innerHTML=dates.map((d,i)=>`<button class="chip day" data-i="${i}"><div class="text-xs" style="opacity:.8">${i==0?'اليوم':DN[d.getDay()]}</div><div class="text-xl font-bold">${d.getDate()}</div><div class="text-xs" style="opacity:.7">${MN[d.getMonth()].slice(0,5)}</div></button>`).join('');
+document.querySelectorAll('.day').forEach(b=>b.onclick=()=>{sel.d=+b.dataset.i;sel.t=null;document.querySelectorAll('.day').forEach(x=>x.classList.toggle('on',x===b));slots();sum()});
+const hrs=[10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
+const fmt=h=>h==24?'12:00 ص (منتصف الليل)':(h>12?h-12:h)+':00 '+(h>=12?'م':'ص');
+function slots(){$('slots').innerHTML=hrs.map(h=>{let off=(sel.d+h)%5==0;if(sel.d==0&&h<=now.getHours())off=true;return `<button class="chip" data-h="${h}" ${off?'disabled':''}>${h==24?'12:00 ص':fmt(h)}</button>`}).join('');
+document.querySelectorAll('#slots .chip').forEach(b=>b.onclick=()=>{sel.t=+b.dataset.h;document.querySelectorAll('#slots .chip').forEach(x=>x.classList.toggle('on',x===b));sum()})}
+$('slots').innerHTML='<p class="col-span-full text-sm" style="color:var(--mut)">اختر اليوم أولاً لتظهر الساعات المتاحة.</p>';
+const dtxt=()=>{const d=dates[sel.d];return DN[d.getDay()]+' '+d.getDate()+' '+MN[d.getMonth()]};
+function sum(){const n=$('nm').value.trim();$('sum').innerHTML=`الحلّاق: <b>${sel.b!=null?barbers[sel.b].n:'—'}</b><br>الخدمة: <b>${sel.s!=null?services[sel.s][1]+' · '+services[sel.s][2]:'—'}</b><br>الاسم: <b>${n||'—'}</b><br>اليوم: <b>${sel.d!=null?dtxt():'—'}</b> &nbsp; الساعة: <b>${sel.t!=null?fmt(sel.t):'—'}</b>`}
+$('nm').oninput=sum;sum();
+function burst(){const em=['✂️','💈','✨','🎉','😊','👑','🎁','⭐'];for(let i=0;i<50;i++){const e=document.createElement('div'),b=i%2;e.className='pop'+(b?' bub':'');const s=b?14+Math.random()*40:22+Math.random()*16;e.style.cssText+=`left:${Math.random()*100}vw;bottom:-60px;--x:${(Math.random()-.5)*160}px;--r:${(Math.random()-.5)*540}deg;--d:${2.4+Math.random()*2.4}s;font-size:${s}px;${b?`width:${s}px;height:${s}px`:''}`;if(!b)e.textContent=em[i%em.length];document.body.appendChild(e);setTimeout(()=>e.remove(),5200)}}
+/* إنجازات اليوم: تُحفظ في متصفح هذا الجهاز فقط (localStorage) */
+const SK='tb-'+now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate();
+const getB=()=>{try{return JSON.parse(localStorage.getItem(SK)||'[]')}catch(e){return[]}};
+const addB=i=>{try{localStorage.setItem(SK,JSON.stringify([...getB(),i]))}catch(e){}};
+function ach(){const a=getB(),t=a.length;$('ach').innerHTML=`<div class="text-center mb-3"><div class="text-4xl font-black gold">${t}</div><div class="text-sm" style="color:var(--mut)">حجز تم اليوم (الهدف 10)</div><div class="bar mt-2"><i style="width:${Math.min(100,t*10)}%"></i></div></div>`+barbers.map((b,i)=>{const c=a.filter(x=>x===i).length;return `<div class="mb-3"><div class="flex justify-between text-sm"><span>✂️ ${b.n}</span><b class="gold">${c} حجز</b></div><div class="bar mt-1"><i style="width:${Math.min(100,c*20)}%"></i></div></div>`}).join('')+`<p class="text-xs" style="color:var(--mut)">تُحسب حجوزات هذا الجهاز. للعدّاد المشترك بين كل الأجهزة يلزم ربط قاعدة بيانات.</p>`}
+$('go').onclick=()=>{const n=$('nm').value.trim(),er=$('err');const m=sel.b==null?'اختر الحلّاق أولاً.':sel.s==null?'اختر نوع الخدمة.':!n?'اكتب اسمك لو سمحت.':sel.d==null?'اختر اليوم المناسب.':sel.t==null?'اختر الساعة المناسبة.':'';
+if(m){er.textContent=m;er.classList.remove('hidden');return}er.classList.add('hidden');
+const msg=`السلام عليكم 💈\nأرغب بتأكيد حجز في صالون أحمد طبانة:\n\n👤 الاسم: ${n}\n✂️ الحلّاق: ${barbers[sel.b].n}\n💈 الخدمة: ${services[sel.s][1]} (${services[sel.s][2]})\n📅 اليوم: ${dtxt()}\n🕙 الساعة: ${fmt(sel.t)}\n\nشكراً لكم.`;
+const url=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;$('waLink').href=url;addB(sel.b);ach();burst();$('done').classList.add('show');
+setTimeout(()=>{try{window.open(url,'_blank','noopener')}catch(e){}},2200)};
+/* الستوري */
+$('storySlot').innerHTML=slot(IMG.story,'إعلان الصالون','p2',`<svg viewBox="0 0 180 320" class="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="gw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1630"/><stop offset="1" stop-color="#05070f"/></linearGradient><radialGradient id="gl"><stop offset="0" stop-color="#f5c451" stop-opacity=".9"/><stop offset="1" stop-color="#f5c451" stop-opacity="0"/></radialGradient></defs><rect width="180" height="320" fill="url(#gw)"/><circle cx="40" cy="30" r="28" fill="url(#gl)"/><circle cx="140" cy="30" r="28" fill="url(#gl)"/><rect x="28" y="62" width="124" height="112" rx="4" fill="#0f2447" stroke="#f5c451" stroke-width="2.5"/><rect x="35" y="69" width="110" height="98" fill="none" stroke="#22e4ff" stroke-opacity=".5"/><path d="M60 69 90 167h-14L46 69z" fill="#fff" opacity=".07"/><g fill="#0a0a0a" stroke="#f5c451"><rect x="34" y="196" width="44" height="42" rx="12"/><rect x="38" y="232" width="36" height="14" rx="6"/><rect x="102" y="196" width="44" height="42" rx="12"/><rect x="106" y="232" width="36" height="14" rx="6"/></g><g fill="#f5c451"><rect x="52" y="246" width="8" height="30"/><rect x="120" y="246" width="8" height="30"/><ellipse cx="56" cy="282" rx="24" ry="5"/><ellipse cx="124" cy="282" rx="24" ry="5"/></g><rect y="296" width="180" height="24" fill="#0b0f1c"/></svg>`);
+/* القائمة الجانبية الموسّعة */
+const H=(t)=>`<h5 class="font-bold gold mt-3 mb-1">${t}</h5>`,L=a=>`<ul class="list-disc pr-5 space-y-1">${a.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+const skin={'فاتحة':'بني رمادي (Ash Brown)، أشقر رمادي، أسود مزرق. تجنّب النحاسي الناري لأنه يُبرز الاحمرار.','حنطية':'بني شوكولاتة، كراميل، برونزي ذهبي، نحاسي هادئ.','سمراء زيتونية':'بني داكن، كستنائي، أسود طبيعي، أو هايلايت كراميل خفيف. تجنّب الأشقر الباهت جداً.','داكنة':'أسود فحمي، بني عميق، برغندي داكن، أو لمسات نحاسية خفيفة. التفتيح القوي يُضعف الشعر، فاختر تدرجات أدفأ.'};
+const head={'رأس صغير':'الألوان الأفتح والهايلايت العلوي يضيفان حجماً بصرياً. تجنّب الأسود الكثيف الموحّد.','رأس متوسط':'يناسبه أغلب الألوان. جرّب لوناً أساسياً مع لمسة تباين في الأعلى.','رأس كبير':'اللون الغامق الموحّد يُظهر الرأس متناسقاً. تجنّب التفتيح الكامل والألوان الصارخة على الجوانب.'};
+const opt=o=>Object.keys(o).map(k=>`<option>${k}</option>`).join('');
+const D=(ic,t,b,o)=>`<details ${o?'open':''}><summary><span class="text-2xl">${ic}</span>${t}</summary><div class="mt-3 text-sm leading-7" style="color:var(--mut)">${b}</div></details>`;
+$('menuBody').innerHTML=
+D('📋','حجوزات سريعة',`<div class="grid gap-2">${barbers.map((b,i)=>`<button class="chip text-right px-4 qb" data-b="${i}">✂️ احجز مع ${b.n}</button>`).join('')}</div><div class="grid grid-cols-2 gap-2 mt-3">${services.map((s,i)=>`<button class="chip qb" data-s="${i}">${s[0]} ${s[1]}</button>`).join('')}</div>`,1)+
+D('🏆','إنجازات اليوم','<div id="ach"></div>',1)+
+D('💈','ألبوم قصّات 2026 الشبابية',`<div class="grid grid-cols-2 gap-3">${cuts.map((c,i)=>`<div><div style="height:130px">${slot(IMG.album[i],c,['','p2','p3'][i%3])}</div><div class="text-center text-xs mt-2 font-bold" dir="ltr" style="color:var(--tx)">${c}</div></div>`).join('')}</div>`)+
+D('🧴','العناية بالبشرة وتنظيفها',H('أفضل المنظّفات العالمية (أمثلة معروفة)')+L(['CeraVe Foaming Cleanser: للبشرة الدهنية والمختلطة','CeraVe Hydrating Cleanser أو Cetaphil Gentle: للبشرة الجافة والحساسة','La Roche-Posay Effaclar Gel: للدهنية وحب الشباب','Neutrogena Hydro Boost Cleanser: ترطيب خفيف يومي'])+H('المقشّرات')+L(['Paula’s Choice 2% BHA: للمسام والرؤوس السوداء، مرتين أسبوعياً','The Ordinary Glycolic Acid 7%: لتوحيد اللون، مرة إلى مرتين أسبوعياً','COSRX BHA Blackhead Power Liquid: لتنظيف المسام']) +H('روتين مختصر')+L(['صباحاً: غسول، مرطّب، واقي شمس SPF 50','مساءً: غسول، مقشّر حسب الجدول، مرطّب','بعد الحلاقة: ماء بارد ومرطّب بلا كحول','البشرة الحساسة تبدأ بمقشّر واحد أسبوعياً وتراقب النتيجة']))+
+D('💇‍♂️','حماية الشعر وتصفيفه اليومي',H('الشامبو')+L(['Nizoral أو Head &amp; Shoulders: للقشرة','Kérastase Specifique أو L’Oréal Elvive: للشعر الدهني أو الجاف','شامبو بلا سلفات (Sulfate-free): للشعر المصبوغ']) +H('الزيوت')+L(['زيت الأرغان أو Moroccanoil: لمعان وتنعيم للأطراف','زيت الجوجوبا: يقارب زيت فروة الرأس الطبيعي','زيت الخروع: للّحية والحواجب مع كمية قليلة','زيت لحية خفيف قبل النوم']) +H('التصفيف اليومي')+L(['جفّف بالتربيت لا بالفرك','حرارة المجفف متوسطة مع بخاخ حماية','واكس مات للمظهر الطبيعي، وبوماد للمظهر اللامع','مشط خشبي للّحية، وقصّة كل 3–4 أسابيع']))+
+D('🎨','دليل صبغ الشعر للشباب',`<label class="block mb-1">لون البشرة</label><select id="sk">${opt(skin)}</select><label class="block mt-3 mb-1">حجم الرأس</label><select id="hd">${opt(head)}</select><div id="dye" class="glass rounded-xl p-3 mt-3 leading-7" style="color:var(--tx)"></div><p class="mt-3 text-xs">إرشادات عامة، ونتيجة اللون تختلف حسب لون الشعر الأصلي. اختبر الصبغة على جزء صغير قبل 48 ساعة، واترك التفتيح الكامل لمختص.</p>`);
+function dye(){$('dye').innerHTML=`<b class="gold">حسب البشرة:</b> ${skin[$('sk').value]}<br><b class="gold">حسب الرأس:</b> ${head[$('hd').value]}`}
+$('sk').onchange=$('hd').onchange=dye;dye();ach();
+const mo=o=>{$('menu').classList.toggle('open',o);$('veil').classList.toggle('open',o)};$('mb').onclick=()=>mo(true);$('mx').onclick=$('veil').onclick=()=>mo(false);
+document.querySelectorAll('.qb').forEach(b=>b.onclick=()=>{if(b.dataset.b!=null)pickB(+b.dataset.b);else pickS(+b.dataset.s);mo(false);setTimeout(()=>$('book').scrollIntoView(),350)});
+</script>
+</body>
+</html>
